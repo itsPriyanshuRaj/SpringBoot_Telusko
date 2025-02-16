@@ -1,10 +1,15 @@
 package com.priyanshuraj.simpleWebapp.model;
 
+import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Component
+@Entity
 public class Product {
 
-
+    @Id
     private int prodID;
     private String prodName;
     private int prodPrice;
@@ -40,7 +45,7 @@ public class Product {
     public void setProdPrice(int prodPrice) {
         this.prodPrice = prodPrice;
     }
-    
+
     @Override
     public String toString() {
         return "Product [prodID=" + prodID + ", prodName=" + prodName + ", prodPrice=" + prodPrice + "]";

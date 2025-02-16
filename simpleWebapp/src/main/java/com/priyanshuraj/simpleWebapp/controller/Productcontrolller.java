@@ -29,7 +29,7 @@ public class Productcontrolller {
         return service.getProductbyID(prodId);
     }
 
-    @PostMapping("/products")
+    @PostMapping("/addProducts")
     public void addProduct(@RequestBody Product prod){
         System.out.println(prod);
         service.addProduct(prod);

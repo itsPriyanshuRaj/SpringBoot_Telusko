@@ -17,42 +17,27 @@ public class productService {
     @Autowired
     productRepo repo;
 
-    List<Product> products = new ArrayList<>( Arrays.asList(
-        new Product(101, "Mobile", 5000), 
-        new Product(102, "Bike",9000)));
+    // List<Product> products = new ArrayList<>( Arrays.asList(
+    //     new Product(101, "Mobile", 5000), 
+    //     new Product(102, "Bike",9000)));
 
     public List<Product> getProducts(){
-        return products;
+        return repo.findAll();
     }    
 
     public Product getProductbyID(int prodId){
-        return products.stream().filter(p ->p.getProdID() == prodId).findFirst().orElse(
-            new Product(404, "Not found", 00000));
+        return repo.findById(prodId).orElse(new Product());
     }
 
     public void addProduct(Product prod){
-        products.add(prod);
+        repo.save(prod);
     }
 
     public void updateProduct(Product prod){
-        int index =0;
-
-        for(int i=0; i<products.size(); i++){
-            if(products.get(i).getProdID() == prod.getProdID()){
-                index=i;
-            }
-        }
-        products.set(index, prod);
+        repo.save(prod);
     }
 
     public void deleteProduct(int prodId){
-        int index =0;
-
-        for(int i=0; i<products.size(); i++){
-            if(products.get(i).getProdID() == prodId){
-                index=i;
-            }
-        }
-        products.remove(index);
+        repo.deleteById(prodId);
     }
 }
