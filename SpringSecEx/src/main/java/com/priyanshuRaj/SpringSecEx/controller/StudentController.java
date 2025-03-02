@@ -1,9 +1,10 @@
-package com.priyanshuRaj.SpringSecEx;
+package com.priyanshuRaj.SpringSecEx.controller;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.priyanshuRaj.SpringSecEx.modal.Student;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;

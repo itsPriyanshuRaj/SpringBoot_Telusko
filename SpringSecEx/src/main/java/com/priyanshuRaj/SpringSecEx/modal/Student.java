@@ -1,4 +1,4 @@
-package com.priyanshuRaj.SpringSecEx;
+package com.priyanshuRaj.SpringSecEx.modal;
 
 public class Student {
     
