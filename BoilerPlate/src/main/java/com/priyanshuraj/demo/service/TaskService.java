@@ -17,10 +17,9 @@ public class TaskService {
         return taskRepository.findAll();
     }
 //    to post products in the database
-    public Task createTask(Task task){
+    public Task createTask(Task task) {
         return taskRepository.save(task);
     }
-
     public void deleteTask(String id) {
         taskRepository.deleteById(id);
     }

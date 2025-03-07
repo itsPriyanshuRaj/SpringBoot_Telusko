@@ -17,15 +17,16 @@ public class TaskController {
 
     @Autowired
     private TaskService taskService;
-//    @GetMapping("/getTask")
-//    public List<Task> getTask(){
-//        return taskService.getTask();
-//    }
-//
-//    @PostMapping("/saveTask")
-//    public Task saveTask(@RequestBody Task task){
-//        return taskService.createTask(task);
-//    }
+    @GetMapping("/getTask")
+    public List<Task> getTask(){
+        return taskService.getTask();
+    }
+
+    @PostMapping("/saveTask")
+    public Task saveTask(@RequestBody Task task){
+        System.out.println(task);
+        return taskService.createTask(task);
+    }
 
     @DeleteMapping("/deleteTask/{id}")
     public void deleteTask(@PathVariable String id) {
@@ -36,14 +37,14 @@ public class TaskController {
 
 
 //    demo code
-    @PostMapping("/saveTask")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        return ResponseEntity.ok(taskService.createTask(task));
-    }
-
-    // 🔹 Get All Tasks
-    @GetMapping("/getTask")
-    public ResponseEntity<List<Task>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getTask());
-    }
+//    @PostMapping("/saveTask")
+//    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+//        return ResponseEntity.ok(taskService.createTask(task));
+//    }
+//
+//    // 🔹 Get All Tasks
+//    @GetMapping("/getTask")
+//    public ResponseEntity<List<Task>> getAllTasks() {
+//        return ResponseEntity.ok(taskService.getTask());
+//    }
 }
