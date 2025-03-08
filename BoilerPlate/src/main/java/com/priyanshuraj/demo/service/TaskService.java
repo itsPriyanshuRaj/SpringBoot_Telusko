@@ -5,6 +5,7 @@ import com.priyanshuraj.demo.repo.TaskRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -27,12 +28,24 @@ public class TaskService {
     }
 
 //    to update the task with id
-    public Task updateTask(Task task){
-        return taskRepository.save(task);
+    public Task updateTask(String id, Task task){
+        Task existingTask = taskRepository.findById(id).orElseThrow(()-> new RuntimeException("No task found to update"));
+        if (task.getTaskName() != null) existingTask.setTaskName(task.getTaskName());
+        if (task.getTaskDesc() != null) existingTask.setTaskDesc(task.getTaskDesc());
+        if (task.getTaskDueDate() != null) existingTask.setTaskDueDate(task.getTaskDueDate());
+        if (task.getTaskStatus() != null) existingTask.setTaskStatus(task.getTaskStatus());
+        if(task.getTaskCreationDate() != null) existingTask.setTaskCreationDate(task.getTaskCreationDate());
+
+        // Update the modified date
+        existingTask.setTaskModifiedDate(Instant.now());
+
+        return taskRepository.save(existingTask);
     }
     public void deleteTask(String id) {
         taskRepository.deleteById(id);
     }
+
+
 
 
 }

@@ -33,10 +33,11 @@ public class TaskController {
         return taskService.createTask(task);
     }
 
-    @PutMapping("/updateTask")
-    public Task updateTask(@RequestBody Task task){
+    @PutMapping("/updateTask/{id}")
+    public Task updateTask(@PathVariable String id, @RequestBody Task task){
         System.out.println(task);
-        return taskService.updateTask(task);
+        Task updatedTask = taskService.updateTask(id,task);
+        return taskService.updateTask(id,task);
     }
 
     @DeleteMapping("/deleteTask/{id}")
