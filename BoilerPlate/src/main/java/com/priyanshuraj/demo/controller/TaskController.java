@@ -22,10 +22,21 @@ public class TaskController {
         return taskService.getTask();
     }
 
+    @GetMapping("/getTask/{id}")
+    public Task getTaskbyId(@PathVariable String id){
+        return taskService.getTaskbyId(id);
+    }
+
     @PostMapping("/saveTask")
     public Task saveTask(@RequestBody Task task){
         System.out.println(task);
         return taskService.createTask(task);
+    }
+
+    @PutMapping("/updateTask")
+    public Task updateTask(@RequestBody Task task){
+        System.out.println(task);
+        return taskService.updateTask(task);
     }
 
     @DeleteMapping("/deleteTask/{id}")
