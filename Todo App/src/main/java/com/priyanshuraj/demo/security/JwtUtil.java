@@ -11,5 +11,5 @@ public class JwtUtil {
     private final String SECRET_KEY = "arajb";
 
 
-    
+
 }

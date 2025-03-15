@@ -32,23 +32,23 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService(){
-//
-//        UserDetails user1 = User.withDefaultPasswordEncoder()
-//                .username("raj").password("cgi").roles("USER")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(user1);
-//    }
+    @Bean
+    public UserDetailsService userDetailsService(){
+
+        UserDetails user1 = User.withDefaultPasswordEncoder()
+                .username("raj").password("cgi").roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(user1);
+    }
 
     //Works with database
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
-        provider.setUserDetailsService(userDetailsService);
-        return provider;
-    }
+//    @Bean
+//    public AuthenticationProvider authenticationProvider(){
+//        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+//        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+//        provider.setUserDetailsService(userDetailsService);
+//        return provider;
+//    }
 
 }
