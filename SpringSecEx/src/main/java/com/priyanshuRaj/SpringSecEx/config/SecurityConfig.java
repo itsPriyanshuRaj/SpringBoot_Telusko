@@ -43,12 +43,12 @@ public class SecurityConfig {
     }
 
     //Works with database
-//    @Bean
-//    public AuthenticationProvider authenticationProvider(){
-//        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-//        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
-//        provider.setUserDetailsService(userDetailsService);
-//        return provider;
-//    }
+    @Bean
+    public AuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setUserDetailsService(userDetailsService);
+        return provider;
+    }
 
 }
