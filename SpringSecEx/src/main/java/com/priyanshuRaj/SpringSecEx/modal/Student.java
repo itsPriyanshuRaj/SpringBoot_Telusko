@@ -1,7 +1,10 @@
 package com.priyanshuRaj.SpringSecEx.modal;
 
+import jakarta.persistence.Id;
+
 public class Student {
-    
+
+    @Id
     private int id;
     
     @Override

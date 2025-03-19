@@ -1,12 +1,11 @@
 package com.priyanshuRaj.SpringSecEx.repo;
 
-import com.priyanshuRaj.SpringSecEx.modal.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.priyanshuRaj.SpringSecEx.modal.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, String> {
+public interface UserRepo extends JpaRepository<Users, String> {
 
-    User findByUsername(String username);
+    Users findByUsername(String username);
 }

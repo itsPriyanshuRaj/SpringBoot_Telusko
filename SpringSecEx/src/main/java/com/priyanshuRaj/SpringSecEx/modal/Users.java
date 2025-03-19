@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class User {
+public class Users {
 
     @Id
     private int id;

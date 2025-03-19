@@ -1,6 +1,6 @@
 package com.priyanshuRaj.SpringSecEx.service;
 
-import com.priyanshuRaj.SpringSecEx.modal.User;
+import com.priyanshuRaj.SpringSecEx.modal.Users;
 import com.priyanshuRaj.SpringSecEx.modal.UserPrincipal;
 import com.priyanshuRaj.SpringSecEx.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repo.findByUsername(username);
+        Users user = repo.findByUsername(username);
 
         if(user==null){
             System.out.println("User not found");
