@@ -13,10 +13,6 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    private final AccessDeniedHandler accessDeniedHandler;
-    public SecurityConfig(AccessDeniedHandler accessDeniedHandler) {
-        this.accessDeniedHandler = accessDeniedHandler;
-    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -33,23 +29,24 @@ public class SecurityConfig {
                 )
                 .logout(logout->logout
                         .permitAll()
-                )
-                .exceptionHandling(exceptionHandling-> exceptionHandling
-                        .accessDeniedHandler(accessDeniedHandler)
                 );
-
         return http.build();
     }
 
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
+        UserDetails user = User.withUsername("user")
+                .password("raj")
                 .roles("USER")
                 .build();
-        return new InMemoryUserDetailsManager(user);
+
+        UserDetails admin = User.withUsername("admin")
+                .password("admin123")
+                .roles("ADMIN")
+                .build();
+
+        return new InMemoryUserDetailsManager(user, admin);
     }
 
 }
