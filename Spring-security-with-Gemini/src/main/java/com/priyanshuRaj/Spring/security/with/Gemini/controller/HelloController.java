@@ -1,4 +1,4 @@
-package com.priyanshuRaj.Spring.security.with.Gemini;
+package com.priyanshuRaj.Spring.security.with.Gemini.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
