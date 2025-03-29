@@ -21,14 +21,15 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers("/user").hasRole("USER")
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/user","/user/**").hasRole("USER")
                         .anyRequest().authenticated()
                 )
-//                .formLogin(formLogin -> formLogin
-//                        .loginPage("/login")
-//                        .permitAll()
-//                )
+                .httpBasic(httpBasic -> httpBasic.realmName("User resources"))
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login")
+                        .permitAll()
+                )
                 .logout(logout->logout
                         .permitAll()
                 );
@@ -38,7 +39,7 @@ public class SecurityConfig {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withUsername("user")
+        UserDetails user = User.withUsername("priyanshu")
                 .password("raj")
                 .roles("USER")
                 .build();
