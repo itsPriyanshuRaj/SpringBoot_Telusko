@@ -29,4 +29,10 @@ public class UserController {
         System.out.println("addUser endpoint hit");
         return userService.addUser(user);
     }
-}
+
+    @PostMapping("/randomAss")
+    public User random(@RequestBody User username){
+        System.out.println("random post method triggered");
+        return userService.addUsername(username);
+    }
+ }

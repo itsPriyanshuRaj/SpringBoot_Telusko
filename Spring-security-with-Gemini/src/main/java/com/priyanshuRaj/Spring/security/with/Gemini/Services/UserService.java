@@ -31,4 +31,10 @@ public class UserService {
         this.list.add(user);
         return user;
     }
+
+//    debuggine mthid
+    public User addUsername(User username){
+        this.list.add(username);
+        return username;
+    }
 }
