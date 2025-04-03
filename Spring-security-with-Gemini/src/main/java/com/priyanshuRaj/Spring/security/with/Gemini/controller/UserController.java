@@ -18,13 +18,15 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/users/{username}")
     public User getUser(@PathVariable("username") String username){
+        System.out.println("single user endpoint hit");
         return userService.getUserbyUsername(username);
     }
 
     @PostMapping("/user/addUser")
     public User addUser(@RequestBody User user){
+        System.out.println("addUser endpoint hit");
         return userService.addUser(user);
     }
 }
