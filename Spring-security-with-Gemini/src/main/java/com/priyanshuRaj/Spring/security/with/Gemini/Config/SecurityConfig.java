@@ -23,20 +23,21 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf
-                                .disable()
-//                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                                .disable()
+                        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 )
                 .authorizeHttpRequests(authz->authz
+                        .requestMatchers("/signin").permitAll()
                         .requestMatchers("/public/**").hasRole("NORMAL")
                         .requestMatchers("/user/**").hasRole("USER")
                         .anyRequest()
                         .authenticated()
                 )
-                .httpBasic(httpBasic -> httpBasic.realmName("User resources"));
-//                .formLogin(formLogin -> formLogin
-//                        .loginPage("/login")
+//                .httpBasic(httpBasic -> httpBasic.realmName("User resources"));
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/signin")
 //                        .permitAll()
-//                )
+                );
         return http.build();
     }
 
