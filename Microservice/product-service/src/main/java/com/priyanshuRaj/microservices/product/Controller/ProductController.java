@@ -1,16 +1,16 @@
 package com.priyanshuRaj.microservices.product.Controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.priyanshuRaj.microservices.product.dto.ProductRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
 
-    @PostMapping("/create")
-    public void CreateProdcut(){
+    @PostMapping("/")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void CreateProdcut(@RequestBody ProductRequest productRequest){
 
     }
 
