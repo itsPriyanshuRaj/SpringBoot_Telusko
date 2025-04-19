@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/product")
 public class ProductController {
 
+    @GetMapping("/home")
+    public String greet(){
+        return "Hello from product-service microservices";
+    }
+
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public void CreateProdcut(@RequestBody ProductRequest productRequest){
