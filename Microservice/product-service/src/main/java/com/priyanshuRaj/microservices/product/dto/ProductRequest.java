@@ -1,4 +1,4 @@
 package com.priyanshuRaj.microservices.product.dto;
 
-public record ProductRequest(String name, String id, String description, int price) {
+public record ProductRequest(String id, String name, int price, String description) {
 }
