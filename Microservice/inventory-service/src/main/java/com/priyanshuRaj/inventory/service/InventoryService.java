@@ -12,7 +12,7 @@ public class InventoryService {
     
     private final InventoryRepo inventoryRepo;
 
-    public boolean inStock(String skuCode, int Quantity){
-        return inventoryRepo.existsBySkuCodeAndQuantityIsGreaterThanEqual(skuCode, Quantity);
+    public boolean inStock(String skuCode, int quantity){
+        return inventoryRepo.existsBySkuCodeAndQuantityIsGreaterThanEqual(skuCode, quantity);
     }
 }
