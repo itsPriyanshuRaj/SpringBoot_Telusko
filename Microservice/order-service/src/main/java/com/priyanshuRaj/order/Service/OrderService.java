@@ -21,13 +21,13 @@ public class OrderService {
 
     public void placeOrder(OrderRequest orderRequest){
 
-        var isProductInStock = inventoryClient.isInStock(orderRequest.skuCode(), orderRequest.Quantity());
+        var isProductInStock = inventoryClient.isInStock(orderRequest.skuCode(), orderRequest.quantity());
 
         if(isProductInStock){
             Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
         order.setPrice(orderRequest.price());
-        order.setQuantity(orderRequest.Quantity());
+        order.setQuantity(orderRequest.quantity());
         order.setSkuCode(orderRequest.skuCode());
         orderRepo.save(order);
         }else{
